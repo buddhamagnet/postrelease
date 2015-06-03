@@ -1,0 +1,21 @@
+{
+	"ImportPath": "github.com/EconomistDigitalSolutions/postrelease",
+	"GoVersion": "go1.4",
+	"Deps": [
+		{
+			"ImportPath": "github.com/onsi/ginkgo",
+			"Comment": "v1.2.0",
+			"Rev": "462326b1628e124b23f42e87a8f2750e3c4e2d24"
+		},
+		{
+			"ImportPath": "github.com/onsi/gomega",
+			"Comment": "v1.0-50-gd6c945f",
+			"Rev": "d6c945f9fdbf6cad99e85b0feff591caa268e0db"
+		},
+		{
+			"ImportPath": "github.com/sclevine/agouti",
+			"Comment": "v2-latest-25-g48fca2c",
+			"Rev": "48fca2ca564c9ac5943132b1c6a9fd5a9c6754f4"
+		}
+	]
+}
