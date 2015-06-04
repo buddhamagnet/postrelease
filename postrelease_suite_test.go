@@ -1,11 +1,13 @@
 package postrelease_test
 
 import (
+	"os"
+	"testing"
+
+	_ "github.com/joho/godotenv/autoload"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 	"github.com/sclevine/agouti"
-
-	"testing"
 )
 
 func TestPostrelease(t *testing.T) {
@@ -15,13 +17,18 @@ func TestPostrelease(t *testing.T) {
 
 var agoutiDriver *agouti.WebDriver
 
+func init() {
+	switch os.Getenv("DRIVER") {
+	case "phantomjs":
+		agoutiDriver = agouti.PhantomJS()
+	case "chromedriver":
+		agoutiDriver = agouti.ChromeDriver()
+	default:
+		agoutiDriver = agouti.Selenium()
+	}
+}
+
 var _ = BeforeSuite(func() {
-	// Choose a WebDriver:
-
-	agoutiDriver = agouti.PhantomJS()
-	// agoutiDriver = agouti.Selenium()
-	// agoutiDriver = agouti.ChromeDriver()
-
 	Expect(agoutiDriver.Start()).To(Succeed())
 })
 
